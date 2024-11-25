@@ -171,10 +171,10 @@ export default function TableOfContents({
           <button
             onClick={() => handleSectionClick(section)}
             disabled={sectionStates[section.id]?.isGenerating}
-            className={`rounded-md  px-3 py-1 text-sm text-white  disabled:opacity-50 ${
+            className={`rounded-md  px-3 py-1 text-sm disabled:opacity-50 ${
               sectionStates[section.id]?.hasContent
-                ? "bg-yellow-500 hover:bg-yellow-600"
-                : "bg-emerald-600 hover:bg-emerald-700"
+                ? "bg-neutral-900 dark:bg-neutral-100 dark:hover:bg-opacity-90 text-white dark:text-black"
+                : "dark:border-2 dark:border-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-800 text-black dark:text-white"
             }`}
           >
             {sectionStates[section.id]?.isGenerating
@@ -223,7 +223,11 @@ export default function TableOfContents({
           <SectionContent content={selectedSection.content} />
           <button
             onClick={handleBackToTop}
-            className="my-4 rounded-md bg-neutral-500 px-3 py-1 text-sm text-white hover:bg-neutral-600 font-bold"
+            className="my-4 rounded-md px-3 py-1 text-sm text-white font-bold
+
+             bg-neutral-950 shadow-sm hover:bg-neutral-800 border-2 border-neutral-800 disabled:opacity-50 sm:w-auto
+            
+            "
           >
             Back to Top
           </button>

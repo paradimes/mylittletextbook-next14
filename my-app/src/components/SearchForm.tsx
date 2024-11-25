@@ -55,13 +55,13 @@ export default function SearchForm({
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
           placeholder="Enter a topic (e.g., 'Ancient Rome', 'Machine Learning', 'Photography')"
-          className="flex-1 rounded-md border border-gray-300 p-3 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:text-black"
+          className="flex-1 rounded-md border-2 border-neutral-300 dark:border-neutral-800 p-3 shadow-sm focus:border-neutral-400 dark:focus:border-white focus:outline-none dark:text-white dark:bg-black"
           required
         />
         <button
           type="submit"
           disabled={loading}
-          className="rounded-md bg-emerald-500 px-6 py-3 text-white shadow-sm hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 disabled:opacity-50 sm:w-auto"
+          className="rounded-md bg-neutral-950 px-6 py-3 text-white shadow-sm hover:bg-neutral-800 border-2 border-neutral-800    disabled:opacity-50 sm:w-auto"
         >
           {loading ? (
             <span className="flex items-center gap-2">
@@ -84,7 +84,7 @@ export default function SearchForm({
               Generating...
             </span>
           ) : (
-            "Generate Table of Contents"
+            "Generate"
           )}{" "}
         </button>
       </div>

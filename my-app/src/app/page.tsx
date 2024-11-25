@@ -41,8 +41,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <h1 className="mb-8 text-3xl font-bold">MyLittleTextbook</h1>
           <p className="mb-8 text-neutral-600 dark:text-neutral-300">
-            Generate comprehensive learning materials for any topic. Enter a
-            subject to get started.
+            Generate your table of contents. Enter a subject to get started.
           </p>
 
           <SearchForm
