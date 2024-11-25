@@ -226,10 +226,25 @@ export default function TableOfContents({
             className="my-4 rounded-md px-3 py-1 text-sm text-white font-bold
 
              bg-neutral-950 shadow-sm hover:bg-neutral-800 border-2 border-neutral-800 disabled:opacity-50 sm:w-auto
-            
+            flex items-center justify-center gap-2
             "
           >
-            Back to Top
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              className="lucide lucide-arrow-up"
+            >
+              <path d="m5 12 7-7 7 7" />
+              <path d="M12 19V5" />
+            </svg>
+            <span>Back to Top</span>
           </button>
         </div>
       )}
