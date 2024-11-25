@@ -4,7 +4,7 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
-export default function LoginButton() {
+export default function AuthButton() {
   const { data: session, status } = useSession();
   const router = useRouter();
 
@@ -22,7 +22,6 @@ export default function LoginButton() {
   if (session) {
     return (
       <div>
-        <p>Signed in as {session.user?.email}</p>
         <button
           onClick={handleLogout}
           className="bg-red-500 text-white p-2 rounded"
@@ -50,7 +49,7 @@ export default function LoginButton() {
       }
       className="bg-blue-500 text-white p-2 rounded"
     >
-      Sign in with Auth0
+      Sign in
     </button>
   );
 }

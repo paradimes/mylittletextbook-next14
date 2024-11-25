@@ -7,21 +7,47 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #282828;
+  --foreground: #ededed;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d1d5db;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background-color: #374151;
+}
+
+/* Syntax highlighting customization */
+.markdown-pre {
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+.syntax-hight-wrapper {
+  margin: 0 !important;
+  border-radius: 0.5rem !important;
+  font-size: 0.95rem !important;
+}
+
+.dark .syntax-hight-wrapper {
+  background: #1a1a1a !important;
 }
