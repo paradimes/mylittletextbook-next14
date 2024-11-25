@@ -4,14 +4,9 @@ import { NextResponse } from "next/server";
 import { model } from "@/lib/gemini";
 import { prisma } from "@/lib/prisma";
 
-console.log("Prisma imported:", !!prisma);
-console.log("Prisma section model:", !!prisma?.section);
-
 export async function POST(request: Request) {
   try {
     const { topicId, section } = await request.json();
-
-    console.log("Received request:", { topicId, section });
 
     // Check if section content already exists
     const existingSection = await prisma.section.findFirst({
@@ -21,8 +16,6 @@ export async function POST(request: Request) {
       },
     });
 
-    console.log("existingSection", existingSection);
-
     if (existingSection?.content) {
       return NextResponse.json({ content: existingSection.content });
     }
@@ -31,8 +24,6 @@ export async function POST(request: Request) {
     const topic = await prisma.topic.findUnique({
       where: { id: topicId },
     });
-
-    console.log("topic", topic);
 
     if (!topic) {
       return NextResponse.json({ error: "Topic not found" }, { status: 404 });
