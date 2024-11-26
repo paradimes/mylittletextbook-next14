@@ -31,3 +31,15 @@ model Section {
   @@index([topicId])
   @@index([number])
 }
+
+model User {
+  id            String    @id @default(cuid())
+  auth0Id       String    @unique
+  email         String    @unique
+  name          String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@index([auth0Id])
+  @@index([email])
+}
