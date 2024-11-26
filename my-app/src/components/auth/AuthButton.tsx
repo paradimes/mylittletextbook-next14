@@ -24,7 +24,7 @@ export default function AuthButton() {
       <div>
         <button
           onClick={handleLogout}
-          className=" hover:bg-neutral-100 dark:hover:bg-neutral-700 p-2 rounded"
+          className=" hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded"
         >
           Sign out
         </button>
@@ -47,7 +47,7 @@ export default function AuthButton() {
         //   },
         // })
       }
-      className="bg-blue-500 text-white p-2 rounded"
+      className=" hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded"
     >
       Sign in
     </button>
