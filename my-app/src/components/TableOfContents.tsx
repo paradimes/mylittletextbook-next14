@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { SectionContent } from "./SectionContent";
 import { Section, TableOfContents as TOC } from "@/types";
 import LoadingSpinner from "./LoadingSpinner";
+import BookmarkButton from "./BookmarkButton";
 
 interface SectionState {
   [key: string]: {
@@ -206,7 +207,8 @@ export default function TableOfContents({
         className="rounded-lg border border-gray-200 p-6 shadow-sm"
       >
         <h2 className="mb-4 text-xl font-semibold">{content.topic}</h2>
-        <div className="space-y-2">
+        <BookmarkButton topicId={topicId} />
+        <div className="space-y-2 mt-4">
           {content.sections.map((section) => renderSection(section))}
         </div>
         {error && <p className="mt-4 text-red-500">{error}</p>}
