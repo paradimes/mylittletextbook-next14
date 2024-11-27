@@ -35,7 +35,7 @@ export default function AuthButton() {
   return (
     <button
       onClick={
-        () => signIn("")
+        () => signIn("auth0")
 
         // signIn("auth0", {
         //   prompt: "login",
