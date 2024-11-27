@@ -19,8 +19,6 @@ export default function Home() {
   const [isLoadingToc, setIsLoadingToc] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // console.log("topic: TopicResponse", topic);
-
   const handleSearchStart = () => {
     setIsLoadingToc(true);
     // Clear current topic while loading the new one
