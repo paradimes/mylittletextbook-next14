@@ -73,7 +73,7 @@ export default function BookmarksList() {
           className="p-4 rounded-lg border border-neutral-200 dark:border-neutral-800"
         >
           <Link
-            href={`/?topic=${encodeURIComponent(bookmark.topic.name)}`}
+            href={`/topic/${bookmark.topic.id}`}
             className="block hover:underline"
           >
             <h3 className="text-lg font-medium">{bookmark.topic.name}</h3>
