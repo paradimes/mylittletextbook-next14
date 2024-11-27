@@ -21,6 +21,13 @@ export default function SearchForm({
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
     setError("");
+
+    // Client-side validation
+    if (topic.trim().length <= 2) {
+      setError("Topic must be longer than 2 characters");
+      return;
+    }
+
     setLoading(true);
     onSearchStart(); // Clear previous results and show loading state
 
