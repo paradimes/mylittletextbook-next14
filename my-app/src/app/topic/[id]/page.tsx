@@ -31,8 +31,24 @@ export default function TopicPage({ params }: { params: { id: string } }) {
   }, [params.id]);
 
   if (isLoading) return <LoadingSpinner />;
-  if (error) return <div>Error: {error}</div>;
-  if (!topic) return <div>Topic not found</div>;
+  if (error || !topic) {
+    return (
+      <>
+        <Header />
+        <main className="container mx-auto px-4 py-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="mt-8">
+              {error ? (
+                <div className="text-red-500">Error: {error}</div>
+              ) : (
+                <div>Topic not found</div>
+              )}
+            </div>
+          </div>
+        </main>
+      </>
+    );
+  }
 
   return (
     <>
