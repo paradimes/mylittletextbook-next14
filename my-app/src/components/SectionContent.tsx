@@ -58,7 +58,8 @@ export function SectionContent({ content }: SectionContentProps) {
               return (
                 <div className="my-6">
                   <SyntaxHighlighter
-                    style={pojoaque}
+                    // eslint-disable-next-line
+                    style={pojoaque as any}
                     language={match?.[1] || "text"}
                     PreTag="div"
                     className="rounded-lg !bg-neutral-900 dark:!bg-neutral-950 !mt-0"

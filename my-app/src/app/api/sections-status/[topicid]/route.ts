@@ -18,10 +18,12 @@ export async function GET(
     });
 
     return NextResponse.json({
-      sections: sections.map((section) => ({
-        number: section.number,
-        hasContent: !!section.content,
-      })),
+      sections: sections.map(
+        (section: { number: string; content: string | null }) => ({
+          number: section.number,
+          hasContent: !!section.content,
+        })
+      ),
     });
   } catch (error) {
     console.error("Error fetching section statuses:", error);

@@ -1,0 +1,67 @@
+# compose.prod.yaml
+services:
+  next-app:
+    container_name: next-app
+    build:
+      context: ./my-app
+      dockerfile: prod.Dockerfile
+      args:
+        # Build-time variables
+        AUTH_AUTH0_ID: ${AUTH_AUTH0_ID}
+        AUTH_AUTH0_SECRET: ${AUTH_AUTH0_SECRET}
+        AUTH_AUTH0_ISSUER: ${AUTH_AUTH0_ISSUER}
+        NEXTAUTH_URL: ${NEXTAUTH_URL}
+        NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
+        NEXT_PUBLIC_AUTH0_ISSUER: ${NEXT_PUBLIC_AUTH0_ISSUER}
+        NEXT_PUBLIC_AUTH0_ID: ${NEXT_PUBLIC_AUTH0_ID}
+        GEMINI_API_KEY: ${GEMINI_API_KEY}
+        DATABASE_URL: ${DATABASE_URL}
+      # args:
+      #   ENV_VARIABLE: ${ENV_VARIABLE}
+      #   NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
+      #   DATABASE_URL: ${DATABASE_URL}
+    restart: always
+    ports:
+      - 3001:3001
+    depends_on:
+      - postgres
+    environment:
+      # Auth0 and NextAuth
+      AUTH_AUTH0_ID: ${AUTH_AUTH0_ID}
+      AUTH_AUTH0_SECRET: ${AUTH_AUTH0_SECRET}
+      AUTH_AUTH0_ISSUER: ${AUTH_AUTH0_ISSUER}
+      NEXTAUTH_URL: ${NEXTAUTH_URL}
+      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
+      NEXT_PUBLIC_AUTH0_ISSUER: ${NEXT_PUBLIC_AUTH0_ISSUER}
+      NEXT_PUBLIC_AUTH0_ID: ${NEXT_PUBLIC_AUTH0_ID}
+      # Gemini
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+      # Database
+      DATABASE_URL: ${DATABASE_URL}
+    networks:
+      - my_network
+
+  # Add more containers below (nginx, postgres, etc.)
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mylittletextbook
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - 5433:5432
+    networks:
+      - my_network
+
+volumes:
+  postgres_data:
+
+
+# Define a network, which allows containers to communicate
+# with each other, by using their container name as a hostname
+networks:
+  my_network:
+    external: true
