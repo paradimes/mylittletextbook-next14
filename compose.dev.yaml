@@ -20,8 +20,8 @@ services:
     restart: always
     ports:
       - 3001:3001
-    depends_on:
-      - postgres
+    # depends_on:
+    #   - postgres
     environment:
       # Runtime variables
       # NextAuth
@@ -36,22 +36,22 @@ services:
     networks:
       - my_network
 
-  postgres:
-    container_name: postgres-dev
-    image: postgres:latest
-    environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: mylittletextbook
-    volumes:
-      - postgres_data_dev:/var/lib/postgresql/data
-    ports:
-      - 5433:5432
-    networks:
-      - my_network
+  # postgres:
+  #   container_name: postgres-dev
+  #   image: postgres:latest
+  #   environment:
+  #     POSTGRES_USER: user
+  #     POSTGRES_PASSWORD: password
+  #     POSTGRES_DB: mylittletextbook
+  #   volumes:
+  #     - postgres_data_dev:/var/lib/postgresql/data
+  #   ports:
+  #     - 5433:5432
+  #   networks:
+  #     - my_network
 
-volumes:
-  postgres_data_dev:
+# volumes:
+#   postgres_data_dev:
 
 networks:
   my_network:
