@@ -35,14 +35,14 @@ model Section {
 
 model User {
   id            String    @id @default(cuid())
-  auth0Id       String    @unique
+  googleId      String    @unique
   email         String    @unique
   name          String?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   bookmarks     Bookmark[]
 
-  @@index([auth0Id])
+  @@index([googleId])
   @@index([email])
 }
 
