@@ -7,13 +7,10 @@ services:
       dockerfile: prod.Dockerfile
       args:
         # Build-time variables
-        AUTH_AUTH0_ID: ${AUTH_AUTH0_ID}
-        AUTH_AUTH0_SECRET: ${AUTH_AUTH0_SECRET}
-        AUTH_AUTH0_ISSUER: ${AUTH_AUTH0_ISSUER}
+        GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+        GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
         NEXTAUTH_URL: ${NEXTAUTH_URL}
         NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
-        NEXT_PUBLIC_AUTH0_ISSUER: ${NEXT_PUBLIC_AUTH0_ISSUER}
-        NEXT_PUBLIC_AUTH0_ID: ${NEXT_PUBLIC_AUTH0_ID}
         GEMINI_API_KEY: ${GEMINI_API_KEY}
         DATABASE_URL: ${DATABASE_URL}
       # args:
@@ -26,14 +23,12 @@ services:
     depends_on:
       - postgres
     environment:
-      # Auth0 and NextAuth
-      AUTH_AUTH0_ID: ${AUTH_AUTH0_ID}
-      AUTH_AUTH0_SECRET: ${AUTH_AUTH0_SECRET}
-      AUTH_AUTH0_ISSUER: ${AUTH_AUTH0_ISSUER}
+      # Runtime variables
+      # NextAuth
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
       NEXTAUTH_URL: ${NEXTAUTH_URL}
       NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
-      NEXT_PUBLIC_AUTH0_ISSUER: ${NEXT_PUBLIC_AUTH0_ISSUER}
-      NEXT_PUBLIC_AUTH0_ID: ${NEXT_PUBLIC_AUTH0_ID}
       # Gemini
       GEMINI_API_KEY: ${GEMINI_API_KEY}
       # Database
